@@ -17,15 +17,13 @@
   <img src="./src/assets/appExample.png" style="width: 375px; height: 812px" />
 </p>
 
-<div>
-  <h2>A aplicação é composta em 3 partes:</h2>
-  <ul>
-    <li><a src="https://github.com/Th-Fernandes/NLW-ESPORTS-BACKEND">Backend</a></li>
-    <li><a src="https://github.com/Th-Fernandes/NLW-ESPORTS-WEB">Versão Web</a></li>
-    <li><a src="https://github.com/Th-Fernandes/NLW-ESPORTS-MOBILE">Versão Mobile</a></li>
-  <ul>
-</div>
 
+## A aplicação é composta em 3 partes:
+
+- [Backend](https://github.com/Th-Fernandes/NLW-ESPORTS-BACKEND)
+- [Versão Web](https://github.com/Th-Fernandes/NLW-ESPORTS-WEB)
+- [Versão Mobile](https://github.com/Th-Fernandes/NLW-ESPORTS-MOBILE)
+ 
 <div>
   <h2>Ferramentas utilizadas (versão mobile)</h2>
   <ul>
@@ -36,10 +34,7 @@
   </ul>
 </div>
 
-<div>
-  <h2> Autor </h2>
-  <ul>
-    <li><a src="https://www.linkedin.com/in/thiago-fernandes-front/">LinkedIn</a></li>
-    <li><a src="https://www.instagram.com/thiagofernades.dev/">Instagram com conteúdos de programação</a></li>
-  <ul>
-</div>
+## Autor
+- [LinkedIn](https://www.linkedin.com/in/thiago-fernandes-front/)
+- [Instagram com conteúdos de programação](https://www.instagram.com/thiagofernades.dev/)
+
