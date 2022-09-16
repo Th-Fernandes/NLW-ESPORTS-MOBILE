@@ -1,20 +1,18 @@
+import { useEffect, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { FlatList, Image, TouchableOpacity, View,Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {Entypo} from "@expo/vector-icons";
-
-import {SmileySad} from "phosphor-react-native"
-
 import  type { GameParams } from '../../@types/navigation';
 
 import { Background } from '../../components/Background';
-
-import { styles } from './styles';
-import logoImg from "../../assets/logo-nlw-esports.png"
-import { THEME } from '../../theme';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
-import { useEffect, useState } from 'react';
+import { DuoMatch } from "../../components/DuoMatch"
+
+import { THEME } from '../../theme';
+import { styles } from './styles';
+import logoImg from "../../assets/logo-nlw-esports.png"
+import {Entypo} from "@expo/vector-icons";
 
 export function Game() {
   const { params } = useRoute();
@@ -23,9 +21,17 @@ export function Game() {
   const { goBack } = useNavigation();
 
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
   function handleGoBackToHome() {
     goBack()
+  }
+
+  async function getDiscordUser(adsId:string){
+    fetch(`http://192.168.1.64:3001/ads/${adsId}/discord`)
+      .then(res => res.json())
+      .then(data => setDiscordDuoSelected(data.discord))
+
   }
 
   useEffect(() => {
@@ -72,7 +78,7 @@ export function Game() {
           renderItem={({item}) => (
             <DuoCard 
               data={item}
-              onConnect={() => {console.log('connect')}} 
+              onConnect={() => getDiscordUser(item.id)} 
             />
           )}
           style={styles.containerList}
@@ -82,6 +88,12 @@ export function Game() {
           ListEmptyComponent={() => (
             <Text style={{color: THEME.COLORS.CAPTION_300}}>Não há anúncios publicados para esse jogo</Text>
           )}
+        />
+
+        <DuoMatch 
+          visible={discordDuoSelected.length > 0 ? true : false}
+          discord="jato#6754"
+          onClose={ () => setDiscordDuoSelected('')}
         />
       </SafeAreaView>
     </Background>

@@ -10,7 +10,21 @@ import { Background } from './src/components/Background';
 import { Loading } from './src/components/Loading';
 import {Routes} from "./src/routes";
 
+import "./src/services/notificationConfigs";
+import { getPushNotificationToken } from "./src/services/getPushNotifications"
+import { useRef, useEffect } from 'react';
+import {Subscription} from "expo-modules-core"
+
+
+
 export default function App() {
+  const getNotificationListener = useRef<Subscription>()
+  const esponseNotificationListener = useRef<Subscription>()
+
+  useEffect(() => {
+    getPushNotificationToken()
+  }, [])
+
   const [isFontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_600SemiBold,
