@@ -1,5 +1,4 @@
 <h1 align="center">
-  <!-- <img src="./src/assets/logo-nlw-esports.png"/> -->
   <img src="./src/assets/banner.png" />
   <p style="margin-top: 15px font-size: 32px font-weight: 900">NLW ESPORTS | MOBILE</p>
 </h1>
